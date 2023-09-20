@@ -19,7 +19,7 @@
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">About Us</a>
+                    <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Dealership Reviews</a>
                 </div>
             </div>
         </nav>
@@ -28,11 +28,14 @@
 
     </body>
 
-        <div class="card">  
-            <h1 class="xlarge-font">
-            Welcome to Best Cars dealership, home to the best cars in North America. We sell domestic and imported cars at reasonable prices.
-            </h1>
-        <div>
-
+    <div class="container-fluid">
+        <div class="card-columns-vertical">
+                <div class="card mt-1">
+                    <div class="card-header"><h5>Our Vision</h5></div>
+                    <div class="card-body">Welcome to Best Cars dealership, 
+                        home to the best cars in North America.
+                        <br>We sell domestic and imported cars at reasonable prices.</div>
+                </div>
+        </div>
+    </div>
 </html>
-
