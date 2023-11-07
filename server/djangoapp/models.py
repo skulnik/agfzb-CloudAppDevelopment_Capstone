@@ -13,6 +13,10 @@ class CarMake(models.Model):
     make_name = models.CharField(null=False, max_length=30, default='Make')
     make_description = models.CharField(null=False, max_length=100, default='Description')
 
+    def __str__(self):
+        return "Make: " + self.make_name + "," + \
+               "About: " + self.make_description
+
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
 # - Name
@@ -23,10 +27,15 @@ class CarMake(models.Model):
 class CarModel(models.Model):
     model_name = models.CharField(null=False, max_length=30, default='Model')
     dealer_id = models.IntegerField()
-    model_year = models.DateField(year_only=True)
-    model_type = models.CharField(null=False, max_length=30, default='Type')
-    model_make = ForeignKey(CarMake, null=True, on_delete=models.CASCADE)
+    model_year = models.DateField()
+    model_type = models.CharField(null=False, max_length=30, choices=(('sedan', 'Sedan'), ('suv', 'SUV'), ('coupe', 'Coupe'), ('wagon', 'Wagon'), ('truck', 'Truck')))
+    model_make = models.ForeignKey(CarMake, null=True, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return "Year: " + self.model_year + ", " + \
+               "Make: " + self.model_make + "," + \
+               "Model: " + self.model_name + "," + \
+               "Type: " + self.model_type 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
 
