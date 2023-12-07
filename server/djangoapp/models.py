@@ -79,5 +79,3 @@ class DealerReview:
         return "Review: " + self.review + "Dealership: " + self.dealership
         + "Sentiment: " + self.sentiment
         
-
-
